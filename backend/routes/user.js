@@ -113,7 +113,7 @@ router.get("/bulk", authMiddleware, async (req, res) => {
       },
     ],
   });
-
+  //use filter to remove the requesting user from the array
   res.json({
     user: users.map((user) => ({
       username: user.username,
