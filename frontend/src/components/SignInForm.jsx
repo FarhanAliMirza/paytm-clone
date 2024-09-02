@@ -47,6 +47,9 @@ const SignInForm = () => {
       setIsLoading(false);
     }
   };
+  const handlePassword = () => { 
+    setShowPassword(!showPassword);
+  };
   return (
     <div>
       <Card w={"sm"}>
@@ -66,15 +69,22 @@ const SignInForm = () => {
               value={userDetails.username}
             />
             <FormLabel>Password</FormLabel>
-            <Input
-              placeholder="helloworld"
-              type={showPassword ? 'text' : 'password'}
-              mb={3}
-              onChange={(e) => {
-                setUserDetails({ ...userDetails, password: e.target.value });
-              }}
-              value={userDetails.password}
-            />
+            <InputGroup>
+              <Input
+                placeholder="helloworld"
+                type={showPassword ? "text" : "password"}
+                mb={3}
+                onChange={(e) => {
+                  setUserDetails({ ...userDetails, password: e.target.value });
+                }}
+                value={userDetails.password}
+              />
+              <InputRightElement width="4.5rem">
+                <Button h="1.75rem" size="sm" onClick={handlePassword}>
+                  {showPassword ? "Hide" : "Show"}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
 
             <Button
               colorScheme="blue"
