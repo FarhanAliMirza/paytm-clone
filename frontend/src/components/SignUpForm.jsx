@@ -11,7 +11,9 @@ import {
   CardBody,
   CardFooter,
   FormLabel,
+  InputGroup,
   Input,
+  InputRightElement,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +27,7 @@ const SignUpForm = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const SignUpHandler = async () => {
     setIsLoading(true);
@@ -88,7 +91,7 @@ const SignUpForm = () => {
             <FormLabel>Password</FormLabel>
             <Input
               placeholder="helloworld"
-              type="password"
+              type={showPassword ? "text" : "password"}
               mb={3}
               onChange={(e) => {
                 setUserDetails({ ...userDetails, password: e.target.value });
