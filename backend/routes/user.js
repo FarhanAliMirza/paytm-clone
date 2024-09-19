@@ -133,7 +133,7 @@ router.get("/bulk", authMiddleware, async (req, res) => {
   });
 });
 
-router.get("/", authMiddleware, (req, res) => {
+router.get("/", (req, res) => {
   res.json({
     message: "Welcome to the user route",
   });
